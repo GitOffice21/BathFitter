@@ -1,0 +1,91 @@
+<section class="voi_ai_wrap">
+  <div class="container">
+      <div class="voi_ai">
+          <div class="voi_aiLeft">
+              <img src="/assets/laptop.png" />
+              <div class="left-info">
+                <div class="logos">
+                  <img style="background: #fff; padding: 10px;" src="/assets/Logo.svg" />
+              </div>
+              <div class="voi_ttl">
+                <h2>Try our Voice-based AI Agent</h2>
+                <h5>SALLY</h5>
+            </div>
+              </div>
+          </div>
+          <div class="voi_aiRight">
+            <div class="voi_ttl">
+              <div class="left-info">
+                <div class="logos">
+                  <img src="/assets/netsmartzGroup.png" />
+              </div>
+              <div class="voi_ttl">
+                <h2>Try our Voice-based AI Agent</h2>
+                <h5> <img src="/assets/sally.png" /></h5>
+            </div>
+              </div>
+              <h5>Points to Consider</h5>
+          </div>
+              <div class="voi_boxes">
+                  <ul>
+                      <li>1. This is a demo instance of a Careerforce Pro outbound voice agent designed to conduct first-level interviews with candidates. It initiates calls to candidates and checks for their availability to proceed with the conversation.</li>
+                      <li>2. The bot conducts the meeting by asking general hiring-related questions. It processes the conversation using and generates an interview summary and score.</li>
+                      <li>3. After the call, the summary is sent via email. If the candidate is unavailable, the bot reschedules the call and still provides a reference summary.</li>
+                  </ul>
+              </div>
+              <div style="width: 100%;">
+                <form [formGroup]="vapiForm" >
+                  <div class="forminputs">
+                    <div class="item">
+                        <mat-form-field appearance="outline">
+                            <input formControlName="name" matInput placeholder="Enter Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="item">
+                      <div style="display: flex;width: 100%;">
+                        <mat-form-field appearance="outline" class="country-code-dropdown code" style="width:35%;font-size: 14px;">
+                            <mat-select  formControlName="phoneCode" (selectionChange)="updateMask($event.value)">
+                                <mat-option>
+                                    <input style="width:86px;height:34px" type="text" placeholder="Search..." (click)="$event.stopPropagation()" (input)="filterCountry($event)" class="search-input">
+                                  </mat-option>
+                              <mat-option *ngFor="let code of filteredCountryCodes;let i=index" [value]="code.value">
+                                {{ code.label }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field appearance="outline" style="width:65%;">
+                            <input matInput  [mask]="currentMask"
+                              placeholder="Enter Contact Number" formControlName="phoneNumber"></mat-form-field>
+                      </div>
+                  </div>
+                  </div>
+                </form>
+              </div>
+              <div class="callBtn">
+                  <a (click)="submitForm()" class="btn"><i class="fas fa-phone-alt"></i> Click Here</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+   <div class="modal" [ngClass]="{'show': modalVisible}" role="dialog" *ngIf="modalVisible">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">reCAPTCHA Verification</h5>
+        <button type="button" class="close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-6">
+          <!-- <re-captcha siteKey="6LeRuYMqAAAAAMFAn2MgOZT-5q0c1zC0mshVWr7J" (resolved)="onCaptchaResolved($event)">
+          </re-captcha> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</section>
+
+
