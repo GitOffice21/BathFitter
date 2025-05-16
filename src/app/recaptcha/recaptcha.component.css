@@ -194,7 +194,7 @@ color: white;
   list-style-type: none; 
   padding: 15px 30px !important;
   border-radius: 60px;
-  border: 2px solid rgb(0, 75, 224);
+  /* border: 2px solid rgb(0, 75, 224); */
 
 
  padding: 20px;
@@ -430,7 +430,7 @@ h1, h2, p, ul, li, span, a {
     display: -ms-flexbox;
     padding: 40px 50px;
     justify-content: center;
-    background: linear-gradient(to right, rgb(0, 75, 224) 40%, white 40%);
+    background: linear-gradient(to right, #007377 40%, white 40%);
     /* height: 100vh; */
 }
 
@@ -497,10 +497,11 @@ h1, h2, p, ul, li, span, a {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    text-align: justify;
 }
 
 .voi_ai .callBtn .btn {
-    background-color: rgb(0, 75, 224);
+    background-color: #007377;
     color: #fff;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px #00000040;
@@ -578,6 +579,7 @@ a.btn:hover {
         width: 95%;
         margin: 0 auto;
         display: block;
+         background-color: #007377;
     }
 
     .voi_aiRight .voi_ttl h2 {
@@ -698,7 +700,7 @@ a.btn:hover {
 .voi_aiLeft .voi_ttl h5::before{
   position: absolute;
     content: "";
-    background-color: rgb(0, 75, 224);
+    background-color: #007377;
     width: 150px;
     height: 50px;
     transform: skewX(-27deg);
@@ -708,6 +710,7 @@ a.btn:hover {
 }
 .voi_aiLeft .left-info .logos > img {
   filter: brightness(1);
+  
 }
 .voi_aiRight .left-info {
   display: none;
