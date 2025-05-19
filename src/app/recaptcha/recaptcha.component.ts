@@ -63,6 +63,7 @@ export class RecaptchaComponent {
       name: [''],
       phoneCode: ['+91'],
       phoneNumber: [''],
+  
     });
   }
 
@@ -182,16 +183,24 @@ updateMask(selectedCode: string) {
 
 
 submitForm() {
-  
-  const name = this.vapiForm.value.name;
-  const phone = `${this.vapiForm.value.phoneCode}${this.vapiForm.value.phoneNumber}`;
+  if (this.vapiForm.invalid) {
+    console.error("Form is invalid");
+    return;
+  }
 
-  const requestBody = {
-    phone_number: phone,
-    user_name: name
-  };
+  const name = this.vapiForm.get('name')?.value;
+  const phone = `${this.vapiForm.get('phoneCode')?.value}${this.vapiForm.get('phoneNumber')?.value}`;
 
-  this.http.post('https://cfp.netsmartz.us/backend/initiate_vapi_call', requestBody).subscribe({
+  let requestBody = new FormData();
+  requestBody.append('phone_number', phone);
+  requestBody.append('user_name', name);
+
+
+  this.http.post(
+    'https://bf.netsmartz.us/backend/initiate_vapi_call',
+    requestBody
+   
+  ).subscribe({
     next: response => {
       console.log('API Success:', response);
       this.showSuccessMessage();
@@ -201,6 +210,7 @@ submitForm() {
     }
   });
 }
+
 
 
 showSuccessMessage() {
